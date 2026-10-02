@@ -6,7 +6,7 @@
   <div class="content-width contact-inner">
     <div>
       <p class="eyebrow"><span aria-hidden="true"></span>LET’S CONNECT</p>
-      <h2 id="contact-title">Let’s build something<br />that lasts.</h2>
+
     </div>
     <address class="contact-details">
       <div class="contact-method">

@@ -4,8 +4,8 @@
 
 <section class="hero content-width" aria-labelledby="hero-title">
   <div class="hero-copy">
-    <p class="eyebrow"><span aria-hidden="true"></span>FRONT-END ENGINEERING</p>
-    <h1 id="hero-title">Thoughtful interfaces.<br />Solid engineering.</h1>
+    <p class="eyebrow"><span aria-hidden="true"></span>FRONTEND ENGINEERING</p>
+    <h1 id="hero-title">Welcome!<br />Thank you for your interest in my work!.</h1>
     <p class="hero-description">
       Architecture, accessible components and data-intensive applications.
     </p>

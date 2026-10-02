@@ -41,6 +41,7 @@
       {#each navigation as item (item.href)}
         <a href={item.href} onclick={() => (menuOpen = false)}>{item.label}</a>
       {/each}
+      <a href="https://github.com/NahuelFedericoB" target="_blank" rel="noopener noreferrer">GitHub</a>
     </nav>
   </div>
 </header>

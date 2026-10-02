@@ -11,7 +11,7 @@
 
 <div id="top"></div>
 <Header />
-<main id="main" tabindex="-1">
+<main id="main">
   <Hero />
   <Background />
   <Principles />
@@ -21,7 +21,7 @@
 </main>
 <Footer />
 
-<style lang="postcss">
+<style>
   .skip-link {
     @apply fixed bg-portfolio-ink text-portfolio-white rounded-[5px] cursor-pointer;
     top: -100px;
