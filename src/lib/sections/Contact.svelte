@@ -6,7 +6,6 @@
   <div class="content-width contact-inner">
     <div>
       <p class="eyebrow"><span aria-hidden="true"></span>LET’S CONNECT</p>
-
     </div>
     <address class="contact-details">
       <div class="contact-method">
