@@ -1,49 +1,15 @@
+<script lang="ts">
+  import FrontendLab from './FrontendLab.svelte';
+  import Architecture from './Architecture.svelte';
+</script>
+
 <section id="playground" class="section content-width" aria-labelledby="playground-title">
   <div class="section-heading">
     <h2 id="playground-title">Engineering playground</h2>
     <p>Space for a closer look at the implementation.</p>
   </div>
-  <div class="planned-demos">
-    <article id="components" class="demo-reservation">
-      <div class="reservation-heading">
-        <span class="reservation-number" aria-hidden="true">01</span>
-        <div>
-          <h3>Component playground</h3>
-          <p>Components, their variations and the decisions behind them.</p>
-        </div>
-      </div>
-      <div class="reservation-status">
-        <span class="status-label">Planned</span>
-        <p>Interactive examples will be added in a later stage.</p>
-      </div>
-    </article>
-    <article id="data-grid" class="demo-reservation">
-      <div class="reservation-heading">
-        <span class="reservation-number" aria-hidden="true">02</span>
-        <div>
-          <h3>Advanced data grid</h3>
-          <p>A dedicated space to explore a data-intensive interface.</p>
-        </div>
-      </div>
-      <div class="reservation-status">
-        <span class="status-label">Planned</span>
-        <p>The working demo will be added in a later stage.</p>
-      </div>
-    </article>
-    <article id="architecture" class="demo-reservation">
-      <div class="reservation-heading">
-        <span class="reservation-number" aria-hidden="true">03</span>
-        <div>
-          <h3>Architecture, made visible</h3>
-          <p>Project structure, code and the reasoning that connects them.</p>
-        </div>
-      </div>
-      <div class="reservation-status">
-        <span class="status-label">Planned</span>
-        <p>The architecture explorer will be added in a later stage.</p>
-      </div>
-    </article>
-  </div>
+  <FrontendLab />
+  <Architecture />
 </section>
 
 <style lang="postcss">
@@ -117,78 +83,6 @@
 
     .section-heading h2 {
       @apply text-[1.25rem];
-    }
-  }
-  .planned-demos {
-    border: 1px solid var(--border);
-    @apply rounded-[7px] overflow-hidden;
-  }
-
-  .demo-reservation {
-    @apply grid gap-[42px] bg-[#fcfeff];
-    grid-template-columns: 1.5fr 1fr;
-    padding: 30px;
-    scroll-margin-top: 108px;
-  }
-
-  .demo-reservation + .demo-reservation {
-    border-top: 1px solid var(--border);
-  }
-
-  .reservation-heading {
-    @apply flex items-start gap-[22px];
-  }
-
-  .reservation-number {
-    @apply text-portfolio-link bg-[#e8f4fd] rounded-[4px];
-    font: 0.8125rem/1.8 var(--mono);
-    padding: 8px 10px;
-  }
-
-  .reservation-heading p {
-    @apply text-portfolio-muted text-[0.9375rem];
-    margin-top: 6px;
-  }
-
-  .reservation-status {
-    border-left: 1px solid var(--border);
-    padding-left: 30px;
-  }
-
-  .reservation-status p {
-    @apply text-portfolio-muted text-[0.875rem];
-    margin-top: 10px;
-  }
-
-  @media (max-width: 800px) {
-    .demo-reservation {
-      @apply gap-[24px];
-      padding: 24px;
-    }
-
-    .reservation-heading {
-      @apply gap-[16px];
-    }
-
-    .reservation-status {
-      padding-left: 24px;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .demo-reservation {
-      @apply grid-cols-1 gap-[18px];
-    }
-
-    .reservation-status {
-      border-left: 0;
-      border-top: 1px solid var(--border);
-      padding-left: 0;
-      padding-top: 16px;
-    }
-
-    .reservation-status p {
-      margin-top: 8px;
     }
   }
 </style>

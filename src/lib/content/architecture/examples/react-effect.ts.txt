@@ -1,0 +1,16 @@
+useEffect(() => {
+  const callFetchUsers = async (): Promise<void> => {
+    setIsLoading(true);
+
+    try {
+      const response = await fetchUsers(filters);
+      setUsers(response);
+    } catch (error) {
+      setError(constant.errorFetchingMessage);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  callFetchUsers();
+}, [filters]);

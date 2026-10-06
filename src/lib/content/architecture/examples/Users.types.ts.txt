@@ -1,0 +1,71 @@
+import type { AppId, UserStatus } from './domain.types';
+
+export type UUID = string;
+
+export interface UserFilters {
+  sort: 'UserNameAscending' | 'UserNameDescending';
+  pageNumber: number;
+  pageSize: number;
+  includeDisabled: boolean;
+  name: string;
+}
+
+export type RoleName = 'Administrator' | 'Viewer' | 'Admin' | 'Biller' | 'Coordinator';
+export type RoleId = 'Administrator' | 'Viewer';
+
+export interface UserRole {
+  app: AppId;
+  roleName: RoleName;
+  roleId: RoleId;
+}
+
+export interface UserAccessLevel {
+  accessLevelId: UUID;
+  name: string;
+  organizationIds: UUID[];
+}
+
+export interface User {
+  userId: UUID;
+  givenName: string;
+  familyName: string;
+  email: string;
+  accessLevel: UserAccessLevel | null;
+  roles: UserRole[];
+  status: UserStatus;
+  hasGlobalAccess: boolean;
+  lastSignOn: Date | null;
+  tenantId?: UUID | null;
+  registeredOn?: unknown;
+  timezoneName?: string | null;
+}
+
+export interface NormalizedUserRole {
+  app: AppId | '';
+  roleName: RoleName | '';
+  roleId: RoleId | '';
+}
+
+export interface NormalizedUser {
+  userId: UUID;
+  tenantId: UUID;
+  firstName: string;
+  lastName: string;
+  email: string;
+  access: string;
+  timezone: string;
+  accessLevelId: UUID;
+  roles: NormalizedUserRole[];
+  status: UserStatus | '';
+  registered: boolean;
+}
+
+export interface UsersResponse {
+  resources?: User[] | null;
+  resourceCount?: number | null;
+}
+
+export interface UsersResult {
+  list: NormalizedUser[];
+  length: number;
+}

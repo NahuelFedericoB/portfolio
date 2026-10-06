@@ -1,0 +1,13 @@
+$effect(() => {
+  const callFetchUsers = async (): Promise<void> => {
+    isLoading = true;
+
+    const response = await fetchUsers(filters);
+
+    setUsers(response);
+
+    isLoading = false;
+  };
+
+  callFetchUsers();
+});

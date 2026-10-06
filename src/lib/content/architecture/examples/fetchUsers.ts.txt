@@ -1,0 +1,23 @@
+import { normalizeUsers } from '../normalizers/normalizeUsers';
+import type {
+  UserFilters,
+  UsersResponse,
+  UsersResult,
+} from '../types/Users.types';
+
+export const fetchUsers = async (
+  filters: Partial<UserFilters> = {},
+): Promise<UsersResult> => {
+  try {
+    const urlWithParams = craftQueryParams(userUrl, filters);
+    const response: UsersResponse = await http.get(urlWithParams);
+
+    return {
+      list: normalizeUsers(response),
+      length: response?.resourceCount || 0,
+    };
+  } catch (error) {
+    
+    return { list: [], length: 0 };
+  }
+};

@@ -12,7 +12,7 @@
       <a class="work-card" href={demo.href}>
         <div class="card-top">
           <span class="card-number">{demo.number}</span><span class="status-label">
-            Planned case study
+            {demo.status}
           </span>
         </div>
         <h3>{demo.title}</h3>
@@ -62,7 +62,7 @@
   }
 
   .work-grid {
-    @apply grid grid-cols-3 gap-[20px];
+    @apply grid grid-cols-2 gap-[20px];
   }
 
   .work-card {

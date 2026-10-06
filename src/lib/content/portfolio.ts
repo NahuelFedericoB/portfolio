@@ -28,24 +28,18 @@ export const navigation = [
 
 export const demonstrations = [
   {
-    id: 'components',
+    id: 'frontend-lab',
     number: '01',
     title: 'Component systems',
     description: 'Reusable interfaces. Consistent behavior. Carefully considered details.',
-    href: '#components',
+    href: '#frontend-lab',
+    status: 'Live playground',
     tags: ['Components', 'Accessibility'],
   },
   {
-    id: 'data-grid',
-    number: '02',
-    title: 'Data at scale',
-    description: 'A closer look at the decisions behind data-intensive interfaces.',
-    href: '#data-grid',
-    tags: ['Data', 'Performance'],
-  },
-  {
     id: 'architecture',
-    number: '03',
+    status: 'Explore the architecture',
+    number: '02',
     title: 'Frontend architecture',
     description: 'Clear boundaries between presentation, behavior and data.',
     href: '#architecture',

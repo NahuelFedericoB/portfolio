@@ -1,0 +1,93 @@
+import compose from 'lodash/fp/compose';
+import map from 'lodash/fp/map';
+import cond from 'lodash/fp/cond';
+import constant from 'lodash/fp/constant';
+import sortBy from 'lodash/fp/sortBy';
+import toLower from 'lodash/fp/toLower';
+
+import { UsersPage } from '../constants/UsersPage';
+import { getOr } from '../utils/getOr';
+import type { AppId, UserStatus } from '../types/domain.types';
+import type {
+  NormalizedUser,
+  NormalizedUserRole,
+  User,
+  UserAccessLevel,
+  UserRole,
+  UsersResponse,
+  RoleId,
+  RoleName,
+  UUID,
+} from '../types/Users.types';
+
+const toBoolean = (value: unknown): boolean => !!value;
+
+const getResources = getOr<User[]>([], 'resources');
+const getUserId = getOr<UUID>('', 'userId');
+const getAccessLevel = getOr<Partial<UserAccessLevel>>({}, 'accessLevel');
+const getAccessLevelId = getOr<UUID>('', 'accessLevelId');
+const getName = getOr<string>('', 'name');
+const getGivenName = getOr<string>('', 'givenName');
+const getFamilyName = getOr<string>('', 'familyName');
+const getEmail = getOr<string>('', 'email');
+const getRoles = getOr<UserRole[] | ''>('', 'roles');
+const getApp = getOr<AppId | ''>('', 'app');
+const getRoleName = getOr<RoleName | ''>('', 'roleName');
+const getRoleId = getOr<RoleId | ''>('', 'roleId');
+const hasGlobalAccess = getOr<boolean>(false, 'hasGlobalAccess');
+const getStatus = getOr<UserStatus | ''>('', 'status');
+const getTenantId = getOr<UUID>('', 'tenantId');
+const getRegisteredOn = getOr<unknown>('', 'registeredOn');
+const getTimezoneName = getOr<string>('', 'timezoneName');
+const otherwise = (): boolean => true;
+
+const getAccessLevelIdFromAccessLevel: (user: User) => UUID = compose(
+  getAccessLevelId,
+  getAccessLevel,
+);
+
+const getAccessLevelName: (user: User) => string = compose(getName, getAccessLevel);
+const getRegistered: (user: User) => boolean = compose(toBoolean, getRegisteredOn);
+
+const createAccessLevelId: (user: User) => UUID = cond([
+  [hasGlobalAccess, constant('global')],
+  [otherwise, getAccessLevelIdFromAccessLevel],
+]);
+
+const getAccess: (user: User) => string = cond([
+  [hasGlobalAccess, constant(UsersPage.globalAccess)],
+  [otherwise, getAccessLevelName],
+]);
+
+const roleFactory = (role: UserRole): NormalizedUserRole => ({
+  roleId: getRoleId(role),
+  roleName: getRoleName(role),
+  app: getApp(role),
+});
+
+const createRoles: (user: User) => NormalizedUserRole[] = compose(
+  map(roleFactory),
+  getRoles,
+);
+
+const userFactory = (user: User): NormalizedUser => ({
+  userId: getUserId(user),
+  tenantId: getTenantId(user),
+  firstName: getGivenName(user),
+  lastName: getFamilyName(user),
+  email: getEmail(user),
+  access: getAccess(user),
+  accessLevelId: createAccessLevelId(user),
+  roles: createRoles(user),
+  status: getStatus(user),
+  registered: getRegistered(user),
+  timezone: getTimezoneName(user),
+});
+
+const sortByFullName: (users: NormalizedUser[]) => NormalizedUser[] = sortBy(
+  (user: NormalizedUser): string => `${toLower(user.firstName)} ${toLower(user.lastName)}`,
+);
+
+export const normalizeUsers: (
+  response: UsersResponse | null | undefined,
+) => NormalizedUser[] = compose(sortByFullName, map(userFactory), getResources);

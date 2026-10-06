@@ -1,0 +1,20 @@
+import curry from 'lodash/fp/curry';
+import lodashGetOr from 'lodash/fp/getOr';
+import isNull from 'lodash/fp/isNull';
+
+interface GetOr {
+  <T>(defaultValue: T, path: string, object: unknown): T;
+  <T>(defaultValue: T, path: string): (object: unknown) => T;
+  <T>(defaultValue: T): {
+    (path: string, object: unknown): T;
+    (path: string): (object: unknown) => T;
+  };
+}
+
+const curriedGetOr = (defaultValue: unknown, path: string, object: unknown): unknown => {
+  const value = lodashGetOr(defaultValue, path, object);
+
+  return isNull(value) ? defaultValue : value;
+};
+
+export const getOr = curry(curriedGetOr) as GetOr;

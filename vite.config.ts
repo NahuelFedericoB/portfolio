@@ -4,6 +4,15 @@ import { svelteTesting } from '@testing-library/svelte/vite';
 
 export default defineConfig({
   plugins: [svelte(), svelteTesting({ resolveBrowser: true })],
+  server: {
+    host: '127.0.0.1',
+    port: 5173,
+    strictPort: true,
+    proxy: {
+      '/lab': { target: 'http://127.0.0.1:5174', ws: true },
+    },
+  },
+  preview: { proxy: {} },
   test: {
     include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     globals: true,
