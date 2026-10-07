@@ -6,7 +6,6 @@
 <section id="playground" class="section content-width" aria-labelledby="playground-title">
   <div class="section-heading">
     <h2 id="playground-title">Engineering playground</h2>
-    <p>Space for a closer look at the implementation.</p>
   </div>
   <FrontendLab />
   <Architecture />
