@@ -5,7 +5,6 @@
 <section id="work" class="section content-width" aria-labelledby="work-title">
   <div class="section-heading">
     <h2 id="work-title">Selected work</h2>
-    <p>Three perspectives on how I approach frontend engineering.</p>
   </div>
   <div class="work-grid">
     {#each demonstrations as demo (demo.id)}
