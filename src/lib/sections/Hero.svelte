@@ -5,7 +5,7 @@
 <section class="hero content-width" aria-labelledby="hero-title">
   <div class="hero-copy">
     <p class="eyebrow"><span aria-hidden="true"></span>FRONTEND ENGINEERING</p>
-    <h1 id="hero-title">Welcome!<br />Thank you for your interest in my work!.</h1>
+    <h1 id="hero-title">A glimpse into how I think, structure, and design solutions.</h1>
     <p class="hero-description">
       Architecture, accessible components and data-intensive applications.
     </p>

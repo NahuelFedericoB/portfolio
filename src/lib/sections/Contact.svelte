@@ -5,7 +5,7 @@
 <section id="contact" class="contact-section" aria-labelledby="contact-title">
   <div class="content-width contact-inner">
     <div>
-      <p class="eyebrow"><span aria-hidden="true"></span>LET’S CONNECT</p>
+      <p class="eyebrow"><span aria-hidden="true"></span>PLEASE BE FREE TO SEND ME A MESSAGE</p>
     </div>
     <address class="contact-details">
       <div class="contact-method">
