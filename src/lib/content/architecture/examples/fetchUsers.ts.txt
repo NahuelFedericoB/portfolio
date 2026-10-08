@@ -1,3 +1,5 @@
+import { userUrl } from '$lib/constants/apiUrl';
+
 import { normalizeUsers } from '../normalizers/normalizeUsers';
 import type {
   UserFilters,
