@@ -12,14 +12,15 @@ export const fetchUsers = async (
 ): Promise<UsersResult> => {
   try {
     const urlWithParams = craftQueryParams(userUrl, filters);
-    const response: UsersResponse = await http.get(urlWithParams);
+    const response = await fetch(urlWithParams);
+
+    const data: UsersResponse = await response.json();
 
     return {
-      list: normalizeUsers(response),
-      length: response?.resourceCount || 0,
+      list: normalizeUsers(data),
+      length: data?.resourceCount || 0,
     };
   } catch (error) {
-    
     return { list: [], length: 0 };
   }
 };
