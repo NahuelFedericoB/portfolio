@@ -22,7 +22,6 @@ export const aboutParagraphs = [
 export const navigation = [
   { href: '#about', label: 'About me' },
   { href: '#work', label: 'Case studies' },
-  { href: '#playground', label: 'Playground' },
   { href: '#contact', label: 'Contact' },
 ];
 
@@ -38,11 +37,11 @@ export const demonstrations = [
   },
   {
     id: 'architecture',
-    status: 'Explore the architecture',
     number: '02',
     title: 'Frontend architecture',
     description: 'Clear boundaries between presentation, behavior and data.',
     href: '#architecture',
+    status: 'Explore the architecture',
     tags: ['Architecture', 'Maintainability'],
   },
 ];

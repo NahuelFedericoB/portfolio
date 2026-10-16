@@ -426,4 +426,3 @@ This website, its source code, design, documentation, and original content are t
 The repository is publicly available for viewing and evaluation purposes. No license is granted to copy, modify, redistribute, publish, or commercially use this project or substantial portions of its source code without prior written permission from the author.
 
 Third-party libraries and dependencies remain subject to their respective licenses.
-

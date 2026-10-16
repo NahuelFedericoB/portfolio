@@ -52,7 +52,7 @@
 
   @media (max-width: 600px) {
     header {
-      padding-inline: 16px;
+      padding-inline: 12px;
     }
   }
 </style>

@@ -81,7 +81,7 @@
       padding: 20px 16px;
     }
     .explorer {
-      padding: 0 12px 20px;
+      padding: 0 8px 20px;
     }
   }
 </style>

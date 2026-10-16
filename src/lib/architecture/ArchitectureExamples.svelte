@@ -63,4 +63,10 @@
     outline: 2px solid var(--link);
     outline-offset: -3px;
   }
+
+  @media (max-width: 600px) {
+    summary {
+      padding-inline: 12px;
+    }
+  }
 </style>

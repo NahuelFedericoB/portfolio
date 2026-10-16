@@ -130,15 +130,24 @@
   }
 
   @media (max-width: 600px) {
+    .file {
+      padding: 10px 12px;
+    }
+
     .viewport {
-      font-size: 0.75rem;
+      line-height: 1.7;
     }
+
     .gutter {
-      padding-left: 12px;
-      padding-right: 10px;
+      display: none;
     }
+
     pre {
-      padding-inline: 16px;
+      min-width: 0;
+      width: 100%;
+      padding: 14px 12px;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
     }
   }
 </style>
